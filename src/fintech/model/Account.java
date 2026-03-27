@@ -1,40 +1,18 @@
-
 package fintech.model;
 
 public class Account {
-
-    private String username;
-    private String name;
+    private String owner;
+    private String accountName;
     private double balance;
 
-    public Account(String name, String username) {
-        this.name = name;
-        this.username = username;
+    public Account(String owner, String accountName) {
+        this.owner = owner;
+        this.accountName = accountName;
         this.balance = 0.0;
     }
 
-    public String getUsername() {
-        return username;
+    @Override
+    public String toString() {
+        return accountName + "|" + owner + "|" + balance;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public double getBalance() {
-        return balance;
-    }
-
-    public void deposit(double amount) {
-        balance += amount;
-    }
-
-    public boolean withdraw(double amount) {
-        if(balance - amount < 0) {
-            return false;
-        }
-        balance -= amount;
-        return true;
-    }
-
 }
